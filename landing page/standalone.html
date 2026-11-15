@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZYNAIDE — Intelligent AI Agent Platform | Zynaide Coco</title>
+  <meta name="description" content="ZYNAIDE is an intelligent AI-agent deployment and orchestration platform. Featuring Zynaide Coco, a multimodal AI-powered coconut advisory system designed for the Coconut Research Institute (CRI) context.">
+  <link rel="icon" type="image/svg+xml" href="./public/zynaide-leaf-logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#12372A',
+              deep: '#0B221A',
+              dark: '#0E2C22',
+              light: '#1B4B3A',
+            },
+            emerald: {
+              DEFAULT: '#1E8A63',
+              hover: '#187453',
+              light: '#28A77B',
+            },
+            mint: {
+              DEFAULT: '#B7E4C7',
+              soft: '#D8F3DC',
+            },
+            offwhite: {
+              DEFAULT: '#F7F8F2',
+              card: '#FFFFFF',
+              subtle: '#EEF0E6',
+              border: '#E3E6D9',
+            },
+            charcoal: {
+              DEFAULT: '#202B27',
+              dark: '#151D1A',
+              muted: '#4A5B53',
+            },
+            gold: {
+              DEFAULT: '#D6B56D',
+              light: '#E5CD95',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'soft-glow': '0 0 35px -8px rgba(30, 138, 99, 0.35)',
+            'gold-glow': '0 0 30px -8px rgba(214, 181, 109, 0.3)',
+            'premium': '0 20px 40px -15px rgba(18, 55, 42, 0.08)',
+            'card-hover': '0 25px 50px -12px rgba(18, 55, 42, 0.14)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tech-grid {
+      background-size: 36px 36px;
+      background-image: 
+        linear-gradient(to right, rgba(18, 55, 42, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(18, 55, 42, 0.05) 1px, transparent 1px);
+    }
+    .tech-grid-dark {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(183, 228, 199, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(183, 228, 199, 0.07) 1px, transparent 1px);
+    }
+    @keyframes floatKeyframe {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-float-custom {
+      animation: floatKeyframe 5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-offwhite text-charcoal font-sans antialiased selection:bg-emerald/20 selection:text-forest overflow-x-hidden">
+
+  <!-- ======================================================== -->
+  <!-- SECTION 1: NAVIGATION BAR (Sticky, Glassmorphism, Responsive) -->
+  <!-- ======================================================== -->
+  <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-forest/95 backdrop-blur-md border-b border-mint/15 py-3 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#home" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-xl bg-forest-dark border border-mint/30 flex items-center justify-center p-1.5 shadow-soft-glow group-hover:scale-105 transition-transform">
+            <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+              <path d="M8 40C8 40 12 24 24 16C36 8 42 6 42 6C42 6 38 18 28 28C18 38 8 40 8 40Z" fill="#1E8A63" />
+              <path d="M12 40C12 40 22 36 28 26C34 16 38 10 38 10C38 10 30 20 20 30C14 36 12 40 12 40Z" fill="#B7E4C7" fill-opacity="0.4" />
+              <path d="M8 40Q24 24 38 10" stroke="#D6B56D" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="8" cy="40" r="3" fill="#D6B56D" />
+              <circle cx="22" cy="26" r="2.8" fill="#FFFFFF" />
+              <circle cx="38" cy="10" r="3.2" fill="#D6B56D" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-mint transition-colors">
+              ZYNAIDE
+            </span>
+            <span class="text-[10px] font-mono tracking-wider text-mint/80 uppercase -mt-1">
+              AI Agent Platform
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <a href="#home" class="px-3 py-1.5 rounded-lg text-sm font-medium text-offwhite/80 hover:text-white hover:bg-forest-light/50 transition">Home</a>
+          <a href="#about" class="px-3 py-1.5 rounded-lg text-sm font-medium text-offwhite/80 hover:text-white hover:bg-forest-light/50 transition">About</a>
+          <a href="#features" class="px-3 py-1.5 rounded-lg text-sm font-medium text-offwhite/80 hover:text-white hover:bg-forest-light/50 transition">Features</a>
+          <a href="#how-it-works" class="px-3 py-1.5 rounded-lg text-sm font-medium text-offwhite/80 hover:text-white hover:bg-forest-light/50 transition">How It Works</a>
+          <a href="#vision" class="px-3 py-1.5 rounded-lg text-sm font-medium text-offwhite/80 hover:text-white hover:bg-forest-light/50 transition">Our Vision</a>
+          <a href="#contact" class="px-3 py-1.5 rounded-lg text-sm font-medium text-offwhite/80 hover:text-white hover:bg-forest-light/50 transition">Contact</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center space-x-3">
+          <button onclick="openCocoModal()" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-emerald hover:bg-emerald-hover rounded-xl shadow-md shadow-emerald/30 transition duration-200 hover:-translate-y-0.5 border border-emerald/50">
+            <span class="w-2 h-2 rounded-full bg-mint mr-2 animate-pulse"></span>
+            Explore Zynaide Coco
+          </button>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex md:hidden items-center space-x-2">
+          <button onclick="openCocoModal()" class="px-2.5 py-1.5 text-[11px] font-bold text-white bg-emerald rounded-lg">
+            Zynaide coco
+          </button>
+          <button id="mobile-toggle" onclick="toggleMobileNav()" class="p-2 rounded-lg text-mint hover:text-white bg-forest-light focus:outline-none" aria-label="Toggle menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div id="mobile-nav" class="hidden md:hidden mt-3 pt-3 pb-2 border-t border-mint/15 bg-forest-dark rounded-2xl px-4 space-y-1">
+        <a href="#home" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-sm text-offwhite hover:text-white hover:bg-forest-light">Home</a>
+        <a href="#about" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-sm text-offwhite hover:text-white hover:bg-forest-light">About</a>
+        <a href="#features" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-sm text-offwhite hover:text-white hover:bg-forest-light">Features</a>
+        <a href="#how-it-works" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-sm text-offwhite hover:text-white hover:bg-forest-light">How It Works</a>
+        <a href="#vision" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-sm text-offwhite hover:text-white hover:bg-forest-light">Our Vision</a>
+        <a href="#contact" onclick="toggleMobileNav()" class="block px-3 py-2 rounded-lg text-sm text-offwhite hover:text-white hover:bg-forest-light">Contact</a>
+        <div class="pt-2">
+          <button onclick="toggleMobileNav(); openCocoModal();" class="w-full text-center px-4 py-2 text-xs font-bold text-white bg-emerald rounded-xl">
+            Explore Zynaide Coco
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 2: HERO SECTION (Headline, CTAs & Visual Artwork) -->
+  <!-- ======================================================== -->
+  <section id="home" class="relative pt-28 pb-20 md:pt-36 md:pb-32 bg-forest text-offwhite overflow-hidden">
+    <div class="absolute inset-0 tech-grid-dark opacity-35 pointer-events-none"></div>
+    <div class="absolute top-1/4 -left-48 w-96 h-96 bg-emerald/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute top-1/2 -right-48 w-96 h-96 bg-gold/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left: Hero Text & Buttons -->
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+          
+          <!-- Pill Badge -->
+          <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-forest-light/60 border border-mint/25 text-xs font-medium text-mint backdrop-blur-sm shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald animate-ping"></span>
+            <span class="font-semibold text-white tracking-wide">PILOT DEPLOYMENT</span>
+            <span class="text-mint/60">•</span>
+            <span class="text-offwhite/90">Coconut Research Institute (CRI) Context</span>
+          </div>
+
+          <!-- Main Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Intelligence for Agriculture. <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-mint via-offwhite to-gold bg-clip-text text-transparent">
+              Innovation for Tomorrow.
+            </span>
+          </h1>
+
+          <!-- Supporting Text -->
+          <p class="text-base sm:text-lg text-offwhite/85 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+            Meet <strong class="text-white font-semibold">Zynaide Coco</strong>, an intelligent AI-powered coconut advisory system combining image understanding, trusted agricultural research and specialised AI agents to support better decision-making.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <button onclick="openCocoModal()" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-2xl bg-emerald hover:bg-emerald-hover text-white font-bold text-sm tracking-wide shadow-soft-glow transition-all duration-200 hover:-translate-y-0.5 border border-emerald/50 group">
+              <span>Explore Zynaide Coco</span>
+              <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+
+            <a href="#vision" class="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-2xl bg-forest-light/60 hover:bg-forest-light text-offwhite hover:text-white font-semibold text-sm border border-mint/25 transition-all duration-200 hover:-translate-y-0.5">
+              Discover Our Vision
+            </a>
+          </div>
+
+          <!-- Trust & Architecture Metrics -->
+          <div class="pt-6 border-t border-mint/15 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-left">
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-white tracking-tight">4 Agents</div>
+              <div class="text-[11px] text-mint/80 font-mono mt-0.5">Collaborative Mesh</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-mint tracking-tight">Gemini</div>
+              <div class="text-[11px] text-mint/80 font-mono mt-0.5">Vision 1.5 Diagnostic</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-gold tracking-tight">Zero</div>
+              <div class="text-[11px] text-mint/80 font-mono mt-0.5">Blind Hallucination</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: Coconut Plantation & AI Neural Art -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative w-full aspect-[4/3.8] flex items-center justify-center select-none">
+            <div class="absolute inset-0 bg-gradient-to-tr from-emerald/20 via-forest-light/30 to-mint/10 rounded-3xl blur-3xl -z-10"></div>
+            
+            <div class="relative w-full h-full rounded-3xl border border-mint/20 bg-gradient-to-b from-forest/90 via-forest to-forest-deep p-6 md:p-8 shadow-2xl overflow-hidden flex flex-col justify-between">
+              <div class="absolute inset-0 tech-grid-dark opacity-40 pointer-events-none"></div>
+
+              <!-- Top Bar of Visual Card -->
+              <div class="relative z-10 flex items-center justify-between border-b border-mint/10 pb-4">
+                <div class="flex items-center space-x-3">
+                  <div class="flex space-x-1.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald animate-pulse"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-gold"></span>
+                    <span class="w-2.5 h-2.5 rounded-full bg-mint/50"></span>
+                  </div>
+                  <div class="text-xs font-mono tracking-wider text-mint uppercase font-semibold flex items-center space-x-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald inline-block"></span>
+                    <span>ZYNAIDE COCO • MULTIMODAL INTAKE</span>
+                  </div>
+                </div>
+                <span class="px-2.5 py-1 text-[11px] font-mono font-medium rounded-full bg-emerald/20 text-mint border border-emerald/40">
+                  CRI Validated
+                </span>
+              </div>
+
+              <!-- Center Palm & Neural Network SVG -->
+              <div class="relative z-10 my-auto py-2 flex items-center justify-center">
+                <svg viewBox="0 0 460 320" class="w-full h-auto max-h-[290px] drop-shadow-2xl" fill="none">
+                  <!-- Synapses -->
+                  <g stroke="rgba(183, 228, 199, 0.25)" stroke-width="1" stroke-dasharray="3 3">
+                    <line x1="80" y1="120" x2="160" y2="90" />
+                    <line x1="160" y1="90" x2="230" y2="70" />
+                    <line x1="230" y1="70" x2="300" y2="90" />
+                    <line x1="300" y1="90" x2="380" y2="120" />
+                    <line x1="140" y1="170" x2="230" y2="150" />
+                    <line x1="230" y1="150" x2="320" y2="170" />
+                  </g>
+
+                  <!-- Palm Fronds Left -->
+                  <path d="M230 150 C 180 130, 110 110, 50 140 C 100 160, 170 160, 230 150 Z" fill="#1E8A63" fill-opacity="0.8" stroke="#B7E4C7" stroke-width="1.2" />
+                  <path d="M230 120 C 160 90, 100 70, 70 85 C 120 100, 180 115, 230 120 Z" fill="#187453" fill-opacity="0.9" stroke="#B7E4C7" stroke-width="0.8" />
+                  <path d="M230 90 C 180 50, 130 35, 110 45 C 150 65, 190 75, 230 90 Z" fill="#12372A" />
+
+                  <!-- Palm Fronds Right -->
+                  <path d="M230 150 C 280 130, 350 110, 410 140 C 360 160, 290 160, 230 150 Z" fill="#1E8A63" fill-opacity="0.8" stroke="#B7E4C7" stroke-width="1.2" />
+                  <path d="M230 120 C 300 90, 360 70, 390 85 C 340 100, 280 115, 230 120 Z" fill="#187453" fill-opacity="0.9" stroke="#B7E4C7" stroke-width="0.8" />
+                  <path d="M230 90 C 280 50, 330 35, 350 45 C 310 65, 270 75, 230 90 Z" fill="#12372A" />
+
+                  <!-- Trunk -->
+                  <path d="M225 310 Q 230 200 230 70" stroke="#1E8A63" stroke-width="5" stroke-linecap="round" />
+                  <circle cx="218" cy="148" r="14" fill="#0B221A" stroke="#1E8A63" stroke-width="2" />
+                  <circle cx="242" cy="148" r="14" fill="#12372A" stroke="#1E8A63" stroke-width="2" />
+                  <circle cx="230" cy="162" r="13" fill="#163E30" stroke="#D6B56D" stroke-width="2" />
+
+                  <!-- Gemini Vision Target Box -->
+                  <g transform="translate(140, 75)" class="animate-float-custom">
+                    <rect x="0" y="0" width="180" height="105" rx="10" fill="rgba(18, 55, 42, 0.75)" stroke="#1E8A63" stroke-width="1.5" stroke-dasharray="6 4" />
+                    <path d="M 0 16 L 0 0 L 16 0" stroke="#B7E4C7" stroke-width="2.5" fill="none" />
+                    <path d="M 164 0 L 180 0 L 180 16" stroke="#B7E4C7" stroke-width="2.5" fill="none" />
+                    <path d="M 180 89 L 180 105 L 164 105" stroke="#B7E4C7" stroke-width="2.5" fill="none" />
+                    <path d="M 16 105 L 0 105 L 0 89" stroke="#B7E4C7" stroke-width="2.5" fill="none" />
+                    <line x1="8" y1="52" x2="172" y2="52" stroke="#D6B56D" stroke-width="1.8" />
+                    <rect x="12" y="10" width="115" height="18" rx="4" fill="#0B221A" stroke="#1E8A63" stroke-width="1" />
+                    <text x="16" y="22" fill="#B7E4C7" font-size="8.5" font-family="monospace" font-weight="600">GEMINI VISION 1.5</text>
+                  </g>
+
+                  <!-- Golden Neural Nodes -->
+                  <circle cx="50" cy="140" r="4.5" fill="#D6B56D" />
+                  <circle cx="410" cy="140" r="4.5" fill="#D6B56D" />
+                  <circle cx="70" cy="85" r="4" fill="#B7E4C7" />
+                  <circle cx="390" cy="85" r="4" fill="#B7E4C7" />
+                  <circle cx="230" cy="70" r="5.5" fill="#B7E4C7" />
+                </svg>
+              </div>
+
+              <!-- Status Bottom Bar -->
+              <div class="relative z-10 pt-3 border-t border-mint/10 grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div class="bg-forest-dark rounded-xl p-2 border border-mint/10 text-center">
+                  <div class="text-[10px] text-mint/70 font-mono">COORDINATOR</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Active Sync</div>
+                </div>
+                <div class="bg-forest-dark rounded-xl p-2 border border-mint/10 text-center">
+                  <div class="text-[10px] text-mint/70 font-mono">RESEARCH</div>
+                  <div class="text-xs font-semibold text-mint mt-0.5">CRI Leaflet 34</div>
+                </div>
+                <div class="bg-forest-dark rounded-xl p-2 border border-mint/10 text-center">
+                  <div class="text-[10px] text-gold/80 font-mono">FEASIBILITY</div>
+                  <div class="text-xs font-semibold text-white mt-0.5">Context Valid</div>
+                </div>
+                <div class="bg-forest-dark rounded-xl p-2 border border-mint/10 text-center">
+                  <div class="text-[10px] text-emerald-light font-mono">REVIEW AUDIT</div>
+                  <div class="text-xs font-semibold text-emerald-light mt-0.5">94.8% Verified</div>
+                </div>
+              </div>
+
+              <!-- Floating Confidence Badge -->
+              <div class="absolute top-16 right-5 sm:right-8 bg-forest-deep border border-gold/40 rounded-xl px-3 py-2 shadow-gold-glow flex items-center space-x-2.5 backdrop-blur-md animate-float-custom">
+                <div class="w-2.5 h-2.5 rounded-full bg-gold animate-ping"></div>
+                <div>
+                  <div class="text-[10px] uppercase font-mono text-gold font-medium">Confidence Score</div>
+                  <div class="text-sm font-bold text-white tracking-tight">94.8% CRI Matched</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 3: ABOUT ZYNAIDE (Platform, Pilot & 4 Agents) -->
+  <!-- ======================================================== -->
+  <section id="about" class="py-20 md:py-28 bg-offwhite text-charcoal relative">
+    <div class="absolute inset-0 tech-grid opacity-30 pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/20 text-xs font-semibold text-emerald uppercase tracking-wider mb-3">
+          <span>Platform Architecture</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-forest leading-tight">
+          More Than an AI Assistant. <br />
+          <span class="text-emerald">A Smarter Way to Connect Knowledge.</span>
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-charcoal-muted leading-relaxed">
+          Single-prompt AI bots frequently hallucinate or generate unsafe recommendations. <strong>ZYNAIDE</strong> is an intelligent agent deployment and orchestration platform designed to distribute complex reasoning across specialised AI agents, grounding every diagnosis in vetted scientific literature.
+        </p>
+      </div>
+
+      <!-- 2-Column Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        
+        <!-- Left Column -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-offwhite-border shadow-premium hover:shadow-card-hover transition-all">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 rounded-2xl bg-forest text-mint flex items-center justify-center font-bold text-sm">
+                01
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-forest">The ZYNAIDE Platform Engine</h3>
+                <p class="text-xs text-charcoal-muted">Autonomous Multi-Agent Orchestration</p>
+              </div>
+            </div>
+            <p class="text-sm text-charcoal-muted leading-relaxed">
+              ZYNAIDE isolates prompt inference from decision governance. Instead of asking one model to guess everything, our platform orchestrates four independent agents with distinct responsibilities, safety audits, and deterministic verification protocols.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 sm:p-8 border border-offwhite-border shadow-premium hover:shadow-card-hover transition-all">
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 rounded-2xl bg-emerald text-white flex items-center justify-center font-bold text-sm">
+                02
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-forest">Pilot Product: ZYNAIDE COCO</h3>
+                <p class="text-xs text-charcoal-muted">Coconut Research Institute (CRI) Context</p>
+              </div>
+            </div>
+            <p class="text-sm text-charcoal-muted leading-relaxed">
+              Our pilot product addresses coconut tree health, pest management, and nutrient deficiencies. Users describe symptoms and upload photographs. The system uses multimodal Gemini Vision and the approved CRI knowledge base to provide transparent, verifiable answers.
+            </p>
+            <div class="mt-4 pt-4 border-t border-offwhite-border flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald font-semibold">
+                Transparent source citations • Expert human referral
+              </span>
+              <button onclick="openCocoModal()" class="text-xs font-bold text-forest hover:text-emerald">
+                Test Simulator →
+              </button>
+            </div>
+          </div>
+
+          <div class="bg-forest-light/10 rounded-2xl p-4 border border-emerald/20 flex items-start space-x-3 text-xs text-forest">
+            <span class="text-emerald font-bold text-base">✦</span>
+            <p class="leading-relaxed">
+              <strong>Enterprise Generalization:</strong> While Zynaide Coco starts in agronomy, the core platform architecture will scale to enterprise compliance, forestry, and organizational decision intelligence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive 4-Agent Inspector -->
+        <div class="lg:col-span-6">
+          <div class="bg-forest rounded-3xl p-6 sm:p-8 text-offwhite border border-mint/20 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-emerald/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 flex items-center justify-between border-b border-mint/15 pb-4 mb-6">
+              <div>
+                <span class="text-[10px] font-mono uppercase tracking-widest text-mint font-semibold">
+                  Interactive System Roles
+                </span>
+                <h3 class="text-xl font-bold text-white tracking-tight">The 4 Specialised Agents</h3>
+              </div>
+              <span class="px-2.5 py-1 text-[11px] font-mono rounded-lg bg-forest-light text-mint border border-mint/20">
+                Click to Inspect
+              </span>
+            </div>
+
+            <!-- Agent Buttons -->
+            <div class="relative z-10 grid grid-cols-2 gap-2.5 mb-6">
+              <button onclick="selectAgent('coordinator')" id="agent-btn-coordinator" class="agent-tab-btn p-3 rounded-2xl border text-left transition-all bg-emerald/30 border-mint shadow-soft-glow">
+                <div class="text-xs font-bold text-white">Coordinator Agent</div>
+                <div class="text-[10px] font-mono text-mint/80 mt-0.5">Workflow Lead</div>
+              </button>
+              <button onclick="selectAgent('research')" id="agent-btn-research" class="agent-tab-btn p-3 rounded-2xl border text-left transition-all bg-forest-dark border-mint/10 text-mint/70">
+                <div class="text-xs font-bold text-white">Research Agent</div>
+                <div class="text-[10px] font-mono text-mint/80 mt-0.5">CRI Grounded</div>
+              </button>
+              <button onclick="selectAgent('feasibility')" id="agent-btn-feasibility" class="agent-tab-btn p-3 rounded-2xl border text-left transition-all bg-forest-dark border-mint/10 text-mint/70">
+                <div class="text-xs font-bold text-white">Feasibility Agent</div>
+                <div class="text-[10px] font-mono text-gold mt-0.5">Context Aware</div>
+              </button>
+              <button onclick="selectAgent('review')" id="agent-btn-review" class="agent-tab-btn p-3 rounded-2xl border text-left transition-all bg-forest-dark border-mint/10 text-mint/70">
+                <div class="text-xs font-bold text-white">Review Agent</div>
+                <div class="text-[10px] font-mono text-emerald-light mt-0.5">Quality Audit</div>
+              </button>
+            </div>
+
+            <!-- Agent Content Box -->
+            <div id="agent-display-box" class="relative z-10 bg-forest-dark rounded-2xl p-5 border border-mint/20 space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2.5">
+                  <div id="agent-avatar" class="w-8 h-8 rounded-xl bg-emerald/20 border border-emerald/50 flex items-center justify-center text-mint font-bold text-xs">
+                    C
+                  </div>
+                  <div>
+                    <div id="agent-name" class="text-sm font-bold text-white">Coordinator Agent</div>
+                    <div id="agent-role" class="text-[11px] font-mono text-gold">Workflow & Orchestration</div>
+                  </div>
+                </div>
+                <span id="agent-metric" class="text-[11px] font-mono px-2.5 py-1 rounded bg-forest border border-mint/20 text-mint">
+                  Core Orchestrator
+                </span>
+              </div>
+              <p id="agent-desc" class="text-xs text-offwhite/90 leading-relaxed font-normal">
+                Manages and coordinates the workflow. Directs incoming user queries, delegates tasks to specialized agents, monitors deliberative synthesis, and formats the final advisory.
+              </p>
+              <div class="pt-2 border-t border-mint/10 flex items-center justify-between text-[11px] font-mono text-mint/70">
+                <span>Protocol: Multi-Agent Consensus</span>
+                <span class="text-emerald-light">Safety Verified ✓</span>
+              </div>
+            </div>
+
+            <!-- Bottom Note -->
+            <div class="relative z-10 mt-6 pt-4 border-t border-mint/15 flex items-center justify-between text-xs text-mint/80">
+              <span class="flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-gold"></span>
+                <span>Expert Human Referral Protocol</span>
+              </span>
+              <span class="font-mono text-[11px] text-offwhite/60">CRI Context Protocol #26</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 4: CORE FEATURES (4 Interactive Cards) -->
+  <!-- ======================================================== -->
+  <section id="features" class="py-20 md:py-28 bg-white text-charcoal relative border-y border-offwhite-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/20 text-xs font-semibold text-emerald uppercase tracking-wider mb-3">
+          <span>Core Capabilities</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-forest">
+          Intelligence Designed for Real Agricultural Challenges.
+        </h2>
+        <p className="mt-4 text-base sm:text-lg text-charcoal-muted leading-relaxed">
+          Combining computer vision with verified research documents, contextual farm constraints, and expert escalation.
+        </p>
+      </div>
+
+      <!-- 4 Feature Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        
+        <!-- Card 1 -->
+        <div class="group bg-offwhite rounded-3xl p-6 sm:p-7 border border-offwhite-border shadow-premium hover:shadow-card-hover hover:border-emerald/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white border border-offwhite-border flex items-center justify-center text-emerald shadow-sm group-hover:scale-110 group-hover:bg-emerald/10 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-white text-forest font-semibold border border-offwhite-border">
+                01
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-forest mb-2.5 group-hover:text-emerald transition-colors">
+              AI-Powered Image Analysis
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed mb-5">
+              Analyse uploaded coconut plant photographs and identify preliminary visual symptoms with multimodal Gemini Vision.
+            </p>
+            <ul class="space-y-2 border-t border-offwhite-border/80 pt-4 text-xs text-charcoal">
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Spear leaf & crown inspection</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Trunk bleeding & lesion detection</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Nut & button fall pattern recognition</span></li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-3 border-t border-offwhite-border/60 flex items-center justify-between text-[11px] font-mono text-charcoal-muted">
+            <span>Powered by</span>
+            <span class="font-semibold text-emerald">Gemini Vision 1.5</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group bg-offwhite rounded-3xl p-6 sm:p-7 border border-offwhite-border shadow-premium hover:shadow-card-hover hover:border-emerald/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white border border-offwhite-border flex items-center justify-center text-emerald shadow-sm group-hover:scale-110 group-hover:bg-emerald/10 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-white text-forest font-semibold border border-offwhite-border">
+                02
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-forest mb-2.5 group-hover:text-emerald transition-colors">
+              Research-Grounded Intelligence
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed mb-5">
+              Retrieve relevant information from approved agricultural research documents, ensuring zero ungrounded guesswork.
+            </p>
+            <ul class="space-y-2 border-t border-offwhite-border/80 pt-4 text-xs text-charcoal">
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>CRI pathology archives & monographs</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Scientific diagnostic keys</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Cultural & biological controls</span></li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-3 border-t border-offwhite-border/60 flex items-center justify-between text-[11px] font-mono text-charcoal-muted">
+            <span>Grounding</span>
+            <span class="font-semibold text-emerald">CRI Validated</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group bg-offwhite rounded-3xl p-6 sm:p-7 border border-offwhite-border shadow-premium hover:shadow-card-hover hover:border-emerald/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white border border-offwhite-border flex items-center justify-center text-emerald shadow-sm group-hover:scale-110 group-hover:bg-emerald/10 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-white text-forest font-semibold border border-offwhite-border">
+                03
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-forest mb-2.5 group-hover:text-emerald transition-colors">
+              Intelligent Agent Collaboration
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed mb-5">
+              Coordinate specialised agents to analyse, assess and review user inquiries collaboratively before responding.
+            </p>
+            <ul class="space-y-2 border-t border-offwhite-border/80 pt-4 text-xs text-charcoal">
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Parallel sub-agent execution</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Contextual feasibility scoring</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Consensus-driven synthesis</span></li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-3 border-t border-offwhite-border/60 flex items-center justify-between text-[11px] font-mono text-charcoal-muted">
+            <span>Mesh</span>
+            <span class="font-semibold text-emerald">4 Active Agents</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group bg-offwhite rounded-3xl p-6 sm:p-7 border border-offwhite-border shadow-premium hover:shadow-card-hover hover:border-emerald/40 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-white border border-offwhite-border flex items-center justify-center text-emerald shadow-sm group-hover:scale-110 group-hover:bg-emerald/10 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-white text-forest font-semibold border border-offwhite-border">
+                04
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-forest mb-2.5 group-hover:text-emerald transition-colors">
+              Reliable Decision Support
+            </h3>
+            <p class="text-sm text-charcoal-muted leading-relaxed mb-5">
+              Provide transparent answers with source references, uncertainty indicators and expert referral when necessary.
+            </p>
+            <ul class="space-y-2 border-t border-offwhite-border/80 pt-4 text-xs text-charcoal">
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Verifiable document page citations</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>Uncertainty & risk scoring</span></li>
+              <li class="flex items-start space-x-2"><span class="text-emerald font-bold">•</span><span>CRI Agronomist ticket escalation</span></li>
+            </ul>
+          </div>
+          <div class="mt-6 pt-3 border-t border-offwhite-border/60 flex items-center justify-between text-[11px] font-mono text-charcoal-muted">
+            <span>Safety</span>
+            <span class="font-semibold text-emerald">Audit & Escalate</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Rigor Banner -->
+      <div class="mt-14 bg-forest rounded-3xl p-6 sm:p-8 text-offwhite border border-mint/20 shadow-premium flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div class="space-y-1 text-center sm:text-left">
+          <div class="text-xs font-mono uppercase tracking-widest text-mint font-semibold">
+            Research Integrity Standard
+          </div>
+          <div class="text-lg sm:text-xl font-bold text-white">
+            Every diagnosis is anchored directly in vetted Coconut Research Institute publications.
+          </div>
+          <p class="text-xs sm:text-sm text-mint/80 max-w-2xl">
+            When visual signs are ambiguous or treatments carry phytotoxicity risks, the system abstains from conjecture and immediately refers cases to accredited agronomists.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <button onclick="openCocoModal()" class="px-5 py-2.5 rounded-xl bg-emerald hover:bg-emerald-hover text-white font-bold text-xs uppercase tracking-wider transition">
+            Test Interactive Simulator
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 5: HOW IT WORKS (6 Connected Stages) -->
+  <!-- ======================================================== -->
+  <section id="how-it-works" class="py-20 md:py-28 bg-offwhite text-charcoal relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/20 text-xs font-semibold text-emerald uppercase tracking-wider mb-3">
+          <span>Orchestration Pipeline</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-forest">
+          From a Simple Inquiry to an Informed Response.
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-charcoal-muted leading-relaxed">
+          The step-by-step workflow orchestrated by ZYNAIDE in seconds whenever an inquiry is submitted.
+        </p>
+      </div>
+
+      <!-- 6-Stage Navigator -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-12">
+        <button onclick="setWorkflowStep(1)" id="step-btn-1" class="workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-forest text-white border-forest shadow-premium scale-105">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-emerald text-white">01</div>
+          <span class="text-[10px] font-mono uppercase tracking-wider opacity-75">Stage 01</span>
+          <span class="block text-xs font-bold text-mint truncate mt-0.5">User Intake</span>
+        </button>
+        <button onclick="setWorkflowStep(2)" id="step-btn-2" class="workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-white text-charcoal border-offwhite-border hover:border-emerald/40">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-offwhite text-charcoal-muted">02</div>
+          <span class="text-[10px] font-mono uppercase tracking-wider opacity-75">Stage 02</span>
+          <span class="block text-xs font-bold truncate mt-0.5">Gemini Vision</span>
+        </button>
+        <button onclick="setWorkflowStep(3)" id="step-btn-3" class="workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-white text-charcoal border-offwhite-border hover:border-emerald/40">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-offwhite text-charcoal-muted">03</div>
+          <span class="text-[10px] font-mono uppercase tracking-wider opacity-75">Stage 03</span>
+          <span class="block text-xs font-bold truncate mt-0.5">Research Agent</span>
+        </button>
+        <button onclick="setWorkflowStep(4)" id="step-btn-4" class="workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-white text-charcoal border-offwhite-border hover:border-emerald/40">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-offwhite text-charcoal-muted">04</div>
+          <span class="text-[10px] font-mono uppercase tracking-wider opacity-75">Stage 04</span>
+          <span class="block text-xs font-bold truncate mt-0.5">Feasibility</span>
+        </button>
+        <button onclick="setWorkflowStep(5)" id="step-btn-5" class="workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-white text-charcoal border-offwhite-border hover:border-emerald/40">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-offwhite text-charcoal-muted">05</div>
+          <span class="text-[10px] font-mono uppercase tracking-wider opacity-75">Stage 05</span>
+          <span class="block text-xs font-bold truncate mt-0.5">Review Agent</span>
+        </button>
+        <button onclick="setWorkflowStep(6)" id="step-btn-6" class="workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-white text-charcoal border-offwhite-border hover:border-emerald/40">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-offwhite text-charcoal-muted">06</div>
+          <span class="text-[10px] font-mono uppercase tracking-wider opacity-75">Stage 06</span>
+          <span class="block text-xs font-bold truncate mt-0.5">Action Outcome</span>
+        </button>
+      </div>
+
+      <!-- Stage Information Card -->
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-offwhite-border shadow-card-hover">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center space-x-3">
+              <span id="workflow-badge-stage" class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-forest text-mint">
+                Stage 01 of 06
+              </span>
+              <span id="workflow-badge-tag" class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald/10 text-emerald border border-emerald/20">
+                User Input Intake
+              </span>
+            </div>
+
+            <h3 id="workflow-title" class="text-2xl sm:text-3xl font-extrabold text-forest tracking-tight">
+              1. User submits a coconut-related inquiry and optionally uploads an image.
+            </h3>
+
+            <div id="workflow-summary" class="text-base text-charcoal font-medium leading-relaxed bg-offwhite p-4 rounded-2xl border border-offwhite-border">
+              Growers, extension officers, or estate managers describe visible abnormalities (e.g. leaf yellowing, nut fall, spear rotting) along with tree age and soil context.
+            </div>
+
+            <p id="workflow-detail" class="text-sm text-charcoal-muted leading-relaxed">
+              The Coordinator Agent receives the initial payload, validates image integrity and resolution, and assigns an asynchronous tracking job ticket for multi-agent execution.
+            </p>
+
+            <div class="pt-4 flex items-center space-x-3">
+              <button onclick="navigateWorkflow(-1)" class="px-4 py-2 rounded-xl text-xs font-bold border border-offwhite-border hover:bg-offwhite text-forest transition">
+                ← Previous Stage
+              </button>
+              <button onclick="navigateWorkflow(1)" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald hover:bg-emerald-hover text-white shadow-sm transition">
+                Next Stage →
+              </button>
+            </div>
+          </div>
+
+          <!-- Telemetry Output Panel -->
+          <div class="lg:col-span-5 bg-forest-dark rounded-2xl p-6 text-offwhite border border-mint/20 space-y-4">
+            <div class="flex items-center justify-between border-b border-mint/15 pb-3">
+              <div class="text-xs font-mono text-mint uppercase tracking-wider flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+                <span>Live Orchestration Telemetry</span>
+              </div>
+              <span class="text-[11px] font-mono text-gold">Stage Telemetry</span>
+            </div>
+
+            <div id="workflow-telemetry" class="space-y-2 text-xs font-mono min-h-[110px]">
+              <div class="text-mint/80">&gt; Payload: Multi-part query received</div>
+              <div class="text-white">&gt; Image: field_sample_cr_301.jpg (12MP)</div>
+              <div class="text-white">&gt; Context: Coconut Triangle, Intermediate Zone</div>
+              <div class="text-gold">&gt; Task ID: #ZYN-COCO-89104</div>
+            </div>
+
+            <div class="pt-3 border-t border-mint/10 text-[11px] font-mono text-mint/60 flex items-center justify-between">
+              <span>Latency: &lt; 400ms</span>
+              <span class="text-mint">Status: Healthy</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 6: OUR VISION (4 Evolutionary Phases) -->
+  <!-- ======================================================== -->
+  <section id="vision" class="py-20 md:py-28 bg-forest text-offwhite relative overflow-hidden">
+    <div class="absolute inset-0 tech-grid-dark opacity-35 pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-60 w-96 h-96 bg-emerald/20 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-10 -left-48 w-80 h-80 bg-gold/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-forest-light/70 border border-mint/25 text-xs font-semibold text-mint uppercase tracking-wider mb-3">
+          <span>Evolutionary Roadmap</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          Starting with Agriculture. <br />
+          <span class="bg-gradient-to-r from-mint to-gold bg-clip-text text-transparent">
+            Building an Intelligent Future.
+          </span>
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-offwhite/85 leading-relaxed">
+          Zynaide Coco is our foundational pilot project in one of Sri Lanka's most vital agricultural sectors. Our long-term mission is to become a reusable AI-agent platform for different organisations and industries.
+        </p>
+        
+        <!-- Future Goals Notice -->
+        <div class="mt-6 inline-flex items-center space-x-2 px-4 py-2 rounded-2xl bg-forest-dark/90 border border-gold/30 text-xs font-medium text-gold/90">
+          <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span>
+            <strong>Development Notice:</strong> Phase 01 represents our current pilot prototype. Phases 02–04 represent future development goals, not currently available services.
+          </span>
+        </div>
+      </div>
+
+      <!-- 4 Phases Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Phase 01 -->
+        <div class="relative rounded-3xl p-6 sm:p-7 border bg-gradient-to-b from-forest-light/60 to-forest-dark border-mint shadow-soft-glow flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold tracking-wider px-2.5 py-1 rounded-lg bg-emerald text-white">
+                Phase 01
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border bg-mint/15 text-mint border-mint/40 font-bold">
+                Pilot Application
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Zynaide Coco</h3>
+            <div class="text-xs font-semibold text-gold mb-4 leading-snug">
+              Focused Agricultural Advisory
+            </div>
+            <p class="text-xs sm:text-sm text-offwhite/80 leading-relaxed mb-6">
+              Focused agricultural advisory for the Coconut Research Institute (CRI) context, validating multimodal disease diagnostics and research grounding.
+            </p>
+            <div class="space-y-2 border-t border-mint/10 pt-4 text-xs text-offwhite/90">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-mint/70 font-semibold mb-2">Key Deliverables</div>
+              <div class="flex items-start space-x-2"><span class="text-emerald-light font-bold">✦</span><span>Gemini Vision symptom detection</span></div>
+              <div class="flex items-start space-x-2"><span class="text-emerald-light font-bold">✦</span><span>CRI research grounding engine</span></div>
+              <div class="flex items-start space-x-2"><span class="text-emerald-light font-bold">✦</span><span>4-agent collaborative consensus</span></div>
+              <div class="flex items-start space-x-2"><span class="text-emerald-light font-bold">✦</span><span>Expert human referral protocol</span></div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-mint/10 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-mint/70">Status</span>
+            <span class="text-emerald-light font-bold">Pilot Prototype</span>
+          </div>
+        </div>
+
+        <!-- Phase 02 -->
+        <div class="relative rounded-3xl p-6 sm:p-7 border bg-forest-dark/80 border-mint/15 shadow-dark-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold tracking-wider px-2.5 py-1 rounded-lg bg-forest text-mint/80">
+                Phase 02
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border bg-white/5 text-offwhite/60 border-white/10">
+                Future Goal
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Enterprise AI</h3>
+            <div class="text-xs font-semibold text-gold mb-4 leading-snug">
+              Configurable Intelligent Agents
+            </div>
+            <p class="text-xs sm:text-sm text-offwhite/80 leading-relaxed mb-6">
+              Configurable intelligent agents for organisations to deploy domain-specific orchestration across agronomy, forestry, and estate management.
+            </p>
+            <div class="space-y-2 border-t border-mint/10 pt-4 text-xs text-offwhite/90">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-mint/70 font-semibold mb-2">Planned Scope</div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Custom organizational doc ingest</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Role-based multi-agent policy editor</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Telemetry & compliance audit suite</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Localized climatic connectors</span></div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-mint/10 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-mint/70">Status</span>
+            <span class="text-gold">Future Goal</span>
+          </div>
+        </div>
+
+        <!-- Phase 03 -->
+        <div class="relative rounded-3xl p-6 sm:p-7 border bg-forest-dark/80 border-mint/15 shadow-dark-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold tracking-wider px-2.5 py-1 rounded-lg bg-forest text-mint/80">
+                Phase 03
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border bg-white/5 text-offwhite/60 border-white/10">
+                Future Goal
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Agent Marketplace</h3>
+            <div class="text-xs font-semibold text-gold mb-4 leading-snug">
+              Catalogue of Validated Agents
+            </div>
+            <p class="text-xs sm:text-sm text-offwhite/80 leading-relaxed mb-6">
+              A curated catalogue of validated, peer-reviewed AI agents developed by research institutes, universities, and industry specialists.
+            </p>
+            <div class="space-y-2 border-t border-mint/10 pt-4 text-xs text-offwhite/90">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-mint/70 font-semibold mb-2">Planned Scope</div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Standardized Agent Protocol (AIP)</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Peer-reviewed accuracy benchmarks</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>One-click agent composition</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Research attribution registry</span></div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-mint/10 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-mint/70">Status</span>
+            <span class="text-gold">Future Goal</span>
+          </div>
+        </div>
+
+        <!-- Phase 04 -->
+        <div class="relative rounded-3xl p-6 sm:p-7 border bg-forest-dark/80 border-mint/15 shadow-dark-card flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold tracking-wider px-2.5 py-1 rounded-lg bg-forest text-mint/80">
+                Phase 04
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded-full border bg-white/5 text-offwhite/60 border-white/10">
+                Future Goal
+              </span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Intelligent Ecosystem</h3>
+            <div class="text-xs font-semibold text-gold mb-4 leading-snug">
+              Ecosystem for Developers
+            </div>
+            <p class="text-xs sm:text-sm text-offwhite/80 leading-relaxed mb-6">
+              A wider interconnected ecosystem for organisations, developers, field sensors, and autonomous environmental robotics.
+            </p>
+            <div class="space-y-2 border-t border-mint/10 pt-4 text-xs text-offwhite/90">
+              <div class="text-[10px] uppercase font-mono tracking-wider text-mint/70 font-semibold mb-2">Planned Scope</div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Autonomous edge-to-cloud mesh</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Cross-sector supply chain intelligence</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Developer SDK & API access</span></div>
+              <div class="flex items-start space-x-2"><span class="text-mint/60">✦</span><span>Climate resilience modeling</span></div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-mint/10 flex items-center justify-between text-[11px] font-mono">
+            <span class="text-mint/70">Status</span>
+            <span class="text-gold">Future Goal</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 7: CALL TO ACTION -->
+  <!-- ======================================================== -->
+  <section id="contact" class="py-20 md:py-28 bg-offwhite text-charcoal relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="relative rounded-3xl bg-gradient-to-br from-forest via-forest to-forest-deep p-8 sm:p-14 lg:p-16 text-offwhite overflow-hidden shadow-2xl border border-mint/20">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-emerald/25 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-10 w-80 h-80 bg-gold/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute inset-0 tech-grid-dark opacity-30 pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+          <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-forest-light/80 border border-mint/25 text-xs font-semibold text-mint uppercase tracking-wider">
+            <span>Collaborate With Zynaide</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+            Let's Build a Smarter Future Together.
+          </h2>
+
+          <p class="text-base sm:text-lg text-offwhite/90 leading-relaxed max-w-2xl mx-auto">
+            Connecting artificial intelligence, trusted knowledge and meaningful innovation.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <button onclick="openContactModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-emerald hover:bg-emerald-hover text-white font-bold text-sm tracking-wide shadow-soft-glow transition-all duration-200 hover:-translate-y-0.5 border border-emerald/50">
+              Get in Touch
+            </button>
+            <button onclick="openCocoModal()" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-forest-light/70 hover:bg-forest-light text-mint hover:text-white font-semibold text-sm border border-mint/30 transition-all duration-200 hover:-translate-y-0.5">
+              Experience Live Advisory Simulator
+            </button>
+          </div>
+
+          <div class="pt-8 border-t border-mint/15 text-xs text-mint/70 font-mono flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <span>Coconut Research Institute Context</span>
+            <span>•</span>
+            <span>Group CS-31 | Agile Team Project 2026/27</span>
+            <span>•</span>
+            <span>Academic & Research Collaboration</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- SECTION 8: FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="bg-forest-deep text-offwhite border-t border-mint/15 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-mint/10">
+        
+        <!-- Brand identity & Description -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-forest border border-mint/30 flex items-center justify-center p-1.5 shadow-soft-glow">
+              <svg viewBox="0 0 48 48" fill="none" class="w-full h-full">
+                <path d="M8 40C8 40 12 24 24 16C36 8 42 6 42 6C42 6 38 18 28 28C18 38 8 40 8 40Z" fill="#1E8A63" />
+                <path d="M12 40C12 40 22 36 28 26C34 16 38 10 38 10C38 10 30 20 20 30C14 36 12 40 12 40Z" fill="#B7E4C7" fill-opacity="0.4" />
+                <path d="M8 40Q24 24 38 10" stroke="#D6B56D" stroke-width="2.5" stroke-linecap="round" />
+                <circle cx="8" cy="40" r="3" fill="#D6B56D" />
+                <circle cx="22" cy="26" r="2.8" fill="#FFFFFF" />
+                <circle cx="38" cy="10" r="3.2" fill="#D6B56D" />
+              </svg>
+            </div>
+            <div>
+              <span class="text-xl font-extrabold tracking-tight text-white">ZYNAIDE</span>
+              <span class="block text-[10px] font-mono tracking-wider text-mint uppercase -mt-1">
+                Intelligent AI Agent Platform
+              </span>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-offwhite/75 leading-relaxed max-w-sm">
+            An intelligent AI-agent deployment and orchestration platform. Featuring <strong class="text-white">Zynaide Coco</strong>, a multimodal AI-powered coconut advisory and decision-support system designed for the Coconut Research Institute (CRI) context.
+          </p>
+
+          <div class="pt-2 flex items-center space-x-2 text-xs font-mono text-gold">
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            <span>Grounded in Peer-Reviewed Agricultural Research</span>
+          </div>
+        </div>
+
+        <!-- Quick Navigation -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-xs font-mono uppercase tracking-wider text-mint font-bold">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs text-offwhite/80">
+            <li><a href="#home" class="hover:text-white transition">Home</a></li>
+            <li><a href="#about" class="hover:text-white transition">About Zynaide</a></li>
+            <li><a href="#features" class="hover:text-white transition">Core Features</a></li>
+            <li><a href="#how-it-works" class="hover:text-white transition">How It Works</a></li>
+            <li><a href="#vision" class="hover:text-white transition">Our Vision & Phases</a></li>
+            <li><a href="#contact" class="hover:text-white transition">Contact & Partnership</a></li>
+          </ul>
+        </div>
+
+        <!-- 4 Specialized Agents list -->
+        <div class="lg:col-span-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-mono uppercase tracking-wider text-mint font-bold">Specialised AI Agents</h4>
+            <button onclick="openCocoModal()" class="text-[11px] font-mono text-emerald-light hover:underline font-semibold">
+              Launch Simulator →
+            </button>
+          </div>
+          <ul class="space-y-2 text-xs">
+            <li><span class="font-semibold text-white">Coordinator Agent</span> <span class="text-offwhite/60 ml-1">— Orchestrates workflow</span></li>
+            <li><span class="font-semibold text-white">Research Agent</span> <span class="text-offwhite/60 ml-1">— Retrieves approved CRI research</span></li>
+            <li><span class="font-semibold text-white">Feasibility Agent</span> <span class="text-offwhite/60 ml-1">— Evaluates grower context</span></li>
+            <li><span class="font-semibold text-white">Review Agent</span> <span class="text-offwhite/60 ml-1">— Validates evidence & quality</span></li>
+          </ul>
+          <div class="pt-3">
+            <button onclick="openContactModal()" class="inline-flex items-center px-4 py-2 rounded-xl bg-forest text-xs font-bold text-mint hover:text-white border border-mint/20 transition">
+              Inquire With Project Team
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Attribution -->
+      <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-offwhite/60 font-mono">
+        <div>
+          © 2026/27 ZYNAIDE Platform. All rights reserved.
+        </div>
+        
+        <!-- Mandatory Academic Project Credit -->
+        <div class="px-3.5 py-1.5 rounded-full bg-forest border border-mint/20 text-mint font-semibold text-[11px]">
+          Group CS-31 | Agile Team Project 2026/27
+        </div>
+
+        <div>
+          <a href="#home" class="hover:text-mint transition">Back to Top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 1: ZYNAIDE COCO INTERACTIVE SIMULATOR -->
+  <!-- ======================================================== -->
+  <div id="coco-modal" class="fixed inset-0 z-50 overflow-y-auto bg-charcoal/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6">
+    <div class="relative w-full max-w-4xl bg-gradient-to-b from-forest to-forest-deep rounded-3xl border border-mint/30 shadow-2xl overflow-hidden text-offwhite my-8">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-5 border-b border-mint/15 bg-forest-dark">
+        <div class="flex items-center space-x-3">
+          <div class="w-9 h-9 rounded-xl bg-emerald/20 border border-emerald/50 flex items-center justify-center text-mint font-bold text-sm">
+            ZC
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <h3 class="text-lg font-bold text-white tracking-tight">Zynaide Coco Interactive Explorer</h3>
+              <span class="px-2 py-0.5 text-[10px] uppercase font-mono font-bold tracking-wider rounded-md bg-gold/20 text-gold border border-gold/40">
+                CRI Pilot Simulation
+              </span>
+            </div>
+            <p class="text-xs text-mint/80">
+              Observe multimodal Gemini Vision and the 4 specialized agents deliberate on field inquiries.
+            </p>
+          </div>
+        </div>
+        <button onclick="closeCocoModal()" class="w-9 h-9 rounded-full bg-forest-light text-mint hover:text-white flex items-center justify-center text-xl font-medium" aria-label="Close">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="p-6 sm:p-8 space-y-6">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-wider text-mint/70 mb-2 font-semibold">
+            Select Sample Coconut Diagnostic Case:
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+            <button onclick="selectCase('mite')" id="case-btn-mite" class="case-btn text-left p-3 rounded-2xl border transition bg-emerald/20 border-emerald shadow-soft-glow">
+              <div class="text-xs font-bold text-white">Coconut Aceria Mite Damage</div>
+              <div class="text-[11px] font-mono text-mint/80 italic mt-0.5">Aceria guerreronis</div>
+              <div class="flex items-center justify-between mt-2 pt-1 border-t border-white/5 text-[10px] font-mono">
+                <span class="text-gold">94.8% Match</span>
+                <span class="text-mint/60">Moderate</span>
+              </div>
+            </button>
+
+            <button onclick="selectCase('budrot')" id="case-btn-budrot" class="case-btn text-left p-3 rounded-2xl border transition bg-forest-dark border-mint/10 text-mint/70">
+              <div class="text-xs font-bold text-white">Phytophthora Bud Rot</div>
+              <div class="text-[11px] font-mono text-mint/80 italic mt-0.5">Phytophthora palmivora</div>
+              <div class="flex items-center justify-between mt-2 pt-1 border-t border-white/5 text-[10px] font-mono">
+                <span class="text-gold">91.2% Risk</span>
+                <span class="text-amber-400 font-bold">Critical</span>
+              </div>
+            </button>
+
+            <button onclick="selectCase('potassium')" id="case-btn-potassium" class="case-btn text-left p-3 rounded-2xl border transition bg-forest-dark border-mint/10 text-mint/70">
+              <div class="text-xs font-bold text-white">Potassium (K) Deficiency</div>
+              <div class="text-[11px] font-mono text-mint/80 italic mt-0.5">Nutrient Disorder</div>
+              <div class="flex items-center justify-between mt-2 pt-1 border-t border-white/5 text-[10px] font-mono">
+                <span class="text-gold">96.4% Match</span>
+                <span class="text-mint/60">Nutritional</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Case Profile Details -->
+        <div class="bg-forest-dark rounded-2xl border border-mint/20 p-5 grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+          <div class="md:col-span-8 space-y-1.5">
+            <div class="flex items-center space-x-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-mint/15 text-mint border border-mint/30">
+                Visible Symptoms
+              </span>
+              <span id="case-scientific" class="text-xs font-mono text-gold">Aceria guerreronis Keifer</span>
+            </div>
+            <h4 id="case-title" class="text-base font-bold text-white">Coconut Aceria Mite Damage</h4>
+            <p id="case-symptoms" class="text-xs text-offwhite/90 leading-relaxed">
+              Triangular pale white patches near the perianth evolving into brown suberized wart-like patches, resulting in fruit stunted development and premature nut fall.
+            </p>
+          </div>
+          <div class="md:col-span-4 bg-forest rounded-xl p-3.5 border border-mint/15 space-y-1">
+            <div class="text-[10px] uppercase font-mono text-mint/70">Research Grounding</div>
+            <div id="case-research" class="text-xs font-semibold text-white leading-snug">
+              CRI Advisory Leaflet No. 34 (Pest Management Series)
+            </div>
+            <div class="text-[11px] font-mono text-gold flex items-center space-x-1 pt-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold inline-block"></span>
+              <span>Verified against CRI Compendium</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-Agent Findings Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div class="bg-forest-dark rounded-2xl border border-mint/15 p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald"></span>
+                <span>Coordinator Agent</span>
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald/20 text-mint border border-emerald/40">Workflow</span>
+            </div>
+            <p id="finding-coord" class="text-xs text-mint/90 leading-relaxed">
+              Dispatched vision feature extraction vectors and coordinated matching against the CRI Arthropod Compendium.
+            </p>
+          </div>
+
+          <div class="bg-forest-dark rounded-2xl border border-mint/15 p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-mint"></span>
+                <span>Research Agent</span>
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-mint/20 text-mint border border-mint/40">CRI Grounded</span>
+            </div>
+            <p id="finding-research" class="text-xs text-mint/90 leading-relaxed">
+              Retrieved CRI Leaflet #34; verified Aceria guerreronis micro-feeding patterns on juvenile buttons and young perianths.
+            </p>
+          </div>
+
+          <div class="bg-forest-dark rounded-2xl border border-mint/15 p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-gold"></span>
+                <span>Feasibility Agent</span>
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-gold/20 text-gold border border-gold/40">Context Match</span>
+            </div>
+            <p id="finding-feasibility" class="text-xs text-mint/90 leading-relaxed">
+              Assessed plantation scale. Safe for organic certified estates; recommended botanical bio-spray using standard knapsack equipment.
+            </p>
+          </div>
+
+          <div class="bg-forest-dark rounded-2xl border border-mint/15 p-4 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white flex items-center space-x-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-light"></span>
+                <span>Review Agent</span>
+              </span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald/20 text-emerald-light border border-emerald/40">Quality Audit</span>
+            </div>
+            <p id="finding-review" class="text-xs text-mint/90 leading-relaxed">
+              Visual confidence 94.8% exceeds threshold; zero hallucination in advisory text; source citations verified.
+            </p>
+          </div>
+        </div>
+
+        <!-- Synthesized Outcome Box -->
+        <div id="case-outcome-box" class="bg-forest-dark rounded-2xl border border-mint/20 p-5 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono uppercase tracking-wider text-mint/80 font-semibold">Synthesized Actionable Recommendation</span>
+            <span id="case-conf-badge" class="text-xs font-mono px-2.5 py-0.5 rounded-full bg-gold/20 text-gold border border-gold/40">Confidence: 94.8% Match</span>
+          </div>
+          <div id="case-recommendation" class="bg-forest rounded-xl p-3.5 border border-mint/15 text-xs text-white leading-relaxed">
+            Apply recommended botanical neem oil-garlic emulsion (2%) or biopesticide spray directed at young nut bunches (1-4 months old). Repeat at 45-day intervals during dry weather.
+          </div>
+          <div id="case-referral-banner" class="hidden p-3 rounded-xl bg-amber-950/60 border border-amber-500/40 text-amber-200 text-xs">
+            <strong>⚠️ CRI Agronomist Referral Triggered:</strong> High stakes pathogenic infection detected. In accordance with CRI safety guidelines, a direct referral ticket #CRI-2026-884 has been issued for field officer inspection.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 bg-forest-dark border-t border-mint/15 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-mint/70">
+        <div>ZYNAIDE Multi-Agent Orchestration • Grounded in Science</div>
+        <button onclick="closeCocoModal()" class="w-full sm:w-auto px-5 py-2 rounded-xl bg-emerald hover:bg-emerald-hover text-white font-semibold transition">
+          Close Explorer
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODAL 2: GET IN TOUCH CONTACT MODAL -->
+  <!-- ======================================================== -->
+  <div id="contact-modal" class="fixed inset-0 z-50 overflow-y-auto bg-charcoal/80 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6">
+    <div class="relative w-full max-w-lg bg-offwhite rounded-3xl border border-offwhite-border shadow-2xl overflow-hidden text-charcoal">
+      
+      <div class="px-6 py-5 bg-forest text-white flex items-center justify-between border-b border-forest-light">
+        <div>
+          <span class="text-[10px] font-mono uppercase tracking-widest text-mint font-semibold">
+            Connect With The Zynaide Team
+          </span>
+          <h3 class="text-xl font-bold tracking-tight text-white mt-0.5">Let's Build a Smarter Future</h3>
+        </div>
+        <button onclick="closeContactModal()" class="w-8 h-8 rounded-full bg-forest-light text-mint hover:text-white flex items-center justify-center text-xl font-medium" aria-label="Close">
+          &times;
+        </button>
+      </div>
+
+      <div id="contact-success" class="hidden p-8 text-center space-y-4">
+        <div class="w-16 h-16 mx-auto rounded-full bg-emerald/10 text-emerald flex items-center justify-center text-3xl font-bold">
+          ✓
+        </div>
+        <h4 class="text-xl font-bold text-forest">Thank You for Reaching Out!</h4>
+        <p class="text-sm text-charcoal-muted leading-relaxed">
+          Your inquiry has been received. The ZYNAIDE academic & development team (Group CS-31 | Agile Team Project 2026/27) will respond shortly.
+        </p>
+        <button onclick="closeContactModal()" class="px-6 py-2.5 rounded-xl bg-emerald hover:bg-emerald-hover text-white font-semibold text-sm transition">
+          Close Window
+        </button>
+      </div>
+
+      <form id="contact-form" onsubmit="handleContactSubmit(event)" class="p-6 sm:p-8 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal-muted mb-1">Your Full Name</label>
+          <input required type="text" placeholder="Dr. Samantha Perera" class="w-full px-4 py-2.5 rounded-xl border border-offwhite-border bg-white text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-emerald/40 transition">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal-muted mb-1">Email Address</label>
+            <input required type="email" placeholder="samantha@cri.gov.lk" class="w-full px-4 py-2.5 rounded-xl border border-offwhite-border bg-white text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-emerald/40 transition">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal-muted mb-1">Organization / Affiliation</label>
+            <input type="text" placeholder="CRI / University / Estate" class="w-full px-4 py-2.5 rounded-xl border border-offwhite-border bg-white text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-emerald/40 transition">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal-muted mb-1">Inquiry Topic</label>
+          <select class="w-full px-4 py-2.5 rounded-xl border border-offwhite-border bg-white text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-emerald/40 transition">
+            <option>Research Collaboration (CRI Context)</option>
+            <option>Zynaide Coco Pilot Inquiries</option>
+            <option>Enterprise AI Agent Deployment (Phase 02)</option>
+            <option>Group CS-31 Academic Inquiries</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-charcoal-muted mb-1">Message / Details</label>
+          <textarea rows="3" required placeholder="Share your inquiry or partnership interest..." class="w-full px-4 py-2.5 rounded-xl border border-offwhite-border bg-white text-charcoal text-sm focus:outline-none focus:ring-2 focus:ring-emerald/40 transition resize-none"></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-between">
+          <span class="text-[11px] text-charcoal-muted">Group CS-31 • Agile Team Project 2026/27</span>
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-emerald hover:bg-emerald-hover text-white font-semibold text-sm transition shadow-sm">
+            Send Message
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Navigation Mobile Toggle
+    function toggleMobileNav() {
+      const nav = document.getElementById('mobile-nav');
+      nav.classList.toggle('hidden');
+    }
+
+    // Modal Handlers
+    function openCocoModal() {
+      document.getElementById('coco-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCocoModal() {
+      document.getElementById('coco-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function openContactModal() {
+      document.getElementById('contact-modal').classList.remove('hidden');
+      document.getElementById('contact-success').classList.add('hidden');
+      document.getElementById('contact-form').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+      document.getElementById('contact-modal').classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contact-form').classList.add('hidden');
+      document.getElementById('contact-success').classList.remove('hidden');
+    }
+
+    // Agent Selector in About Section
+    const agentData = {
+      coordinator: {
+        name: "Coordinator Agent",
+        role: "Workflow & Orchestration",
+        metric: "Core Orchestrator",
+        desc: "Manages and coordinates the workflow. Directs incoming user queries, delegates tasks to specialized agents, monitors deliberative synthesis, and formats the final advisory.",
+        avatar: "C"
+      },
+      research: {
+        name: "Research Agent",
+        role: "Literature & Document Retrieval",
+        metric: "100% CRI Grounded",
+        desc: "Retrieves information from approved research documents. Queries vetted Coconut Research Institute (CRI) bulletins, scientific pathology keys, and verified agronomic compendiums.",
+        avatar: "R"
+      },
+      feasibility: {
+        name: "Feasibility Agent",
+        role: "Contextual & Practical Evaluation",
+        metric: "Context Aware",
+        desc: "Evaluates recommendations based on user context. Considers the grower's regional climate, soil conditions, plantation scale, and treatment availability to guarantee practical viability.",
+        avatar: "F"
+      },
+      review: {
+        name: "Review Agent",
+        role: "Evidence & Quality Verification",
+        metric: "Safety & Governance",
+        desc: "Checks evidence, citations, uncertainty and response quality. Identifies borderline or high-stakes cases and automatically initiates escalation to certified human agronomists.",
+        avatar: "V"
+      }
+    };
+
+    function selectAgent(id) {
+      document.querySelectorAll('.agent-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald/30', 'border-mint', 'shadow-soft-glow');
+        btn.classList.add('bg-forest-dark', 'border-mint/10');
+      });
+      const activeBtn = document.getElementById('agent-btn-' + id);
+      activeBtn.classList.remove('bg-forest-dark', 'border-mint/10');
+      activeBtn.classList.add('bg-emerald/30', 'border-mint', 'shadow-soft-glow');
+
+      const data = agentData[id];
+      document.getElementById('agent-name').textContent = data.name;
+      document.getElementById('agent-role').textContent = data.role;
+      document.getElementById('agent-metric').textContent = data.metric;
+      document.getElementById('agent-desc').textContent = data.desc;
+      document.getElementById('agent-avatar').textContent = data.avatar;
+    }
+
+    // How It Works Workflow Stepper
+    const workflowStages = [
+      {
+        step: 1,
+        title: "1. User submits a coconut-related inquiry and optionally uploads an image.",
+        summary: "Growers, extension officers, or estate managers describe visible abnormalities (e.g. leaf yellowing, nut fall, spear rotting) along with tree age and soil context.",
+        detail: "The Coordinator Agent receives the initial payload, validates image integrity and resolution, and assigns an asynchronous tracking job ticket for multi-agent execution.",
+        tag: "User Input Intake",
+        telemetry: [
+          "> Payload: Multi-part query received",
+          "> Image: field_sample_cr_301.jpg (12MP)",
+          "> Context: Coconut Triangle, Intermediate Zone",
+          "> Task ID: #ZYN-COCO-89104"
+        ]
+      },
+      {
+        step: 2,
+        title: "2. Gemini Vision examines visible symptoms.",
+        summary: "Multimodal Gemini Vision extracts visual feature vectors, inspecting spear leaves, trunk fissures, crown discoloration, and pest perforations.",
+        detail: "The vision model processes bounding regions, classifying visual confidence scores for candidate pathogens (e.g., Phytophthora vs Aceria vs nutrient chlorosis).",
+        tag: "Multimodal Analysis",
+        telemetry: [
+          "> Vision Engine: Gemini 1.5 Multimodal",
+          "> Visual Feature Vector: [0.892, 0.441, 0.912]",
+          "> Lesion Bounding: (x: 142, y: 88, w: 94, h: 62)",
+          "> Symptom Match: Phytophthora necrosis identified"
+        ]
+      },
+      {
+        step: 3,
+        title: "3. Research Agent retrieves relevant approved research.",
+        summary: "Research Agent queries the Coconut Research Institute (CRI) approved document repository for peer-reviewed pathology papers and management circulars.",
+        detail: "Semantic vector search ensures the system references official publications rather than relying on ungrounded web crawls or hallucinations.",
+        tag: "CRI Grounding",
+        telemetry: [
+          "> Research Agent: Vector query executed",
+          "> CRI Pathology Leaflets indexed: 142 documents",
+          "> Matched: CRI Advisory Circular No. 112 (Bud Rot)",
+          "> Grounding Citation Score: 98.4%"
+        ]
+      },
+      {
+        step: 4,
+        title: "4. Feasibility Agent considers the user's context.",
+        summary: "Feasibility Agent evaluates proposed management strategies against farm-level factors: plantation size, weather season, soil type, and organic standards.",
+        detail: "If an organic plantation cannot apply chemical copper fungicides, the agent pivots to vetted biological alternatives or cultural sanitation.",
+        tag: "Context Evaluation",
+        telemetry: [
+          "> Feasibility Agent: Regional parameters loaded",
+          "> Soil: Red Yellow Podzolic (Wet Intermediate Zone)",
+          "> Season: Southwest Monsoon precursor",
+          "> Constraint: Dry weather spray window required"
+        ]
+      },
+      {
+        step: 5,
+        title: "5. Review Agent checks evidence and response quality.",
+        summary: "Review Agent performs an automated audit on source citations, uncertainty scores, and toxicity safety thresholds.",
+        detail: "If symptoms are high-stakes (e.g. fatal crown collapse) or evidence is borderline, the Review Agent flags the case for expert human triage.",
+        tag: "Quality & Safety",
+        telemetry: [
+          "> Review Agent: Safety audit initiated",
+          "> Hallucination check: Pass (0 ungrounded claims)",
+          "> Uncertainty assessment: High stake pathogen detected",
+          "> Dual Outcome: Advisory + Expert CRI referral ticket"
+        ]
+      },
+      {
+        step: 6,
+        title: "6. The user receives a research-backed response or an expert referral.",
+        summary: "The user receives a transparent, structured response complete with exact CRI document citations, action steps, or a direct escalation ticket.",
+        detail: "Critical cases are assigned to a certified CRI Extension Officer with photograph attachments, preventing crop loss through timely human intervention.",
+        tag: "Actionable Outcome",
+        telemetry: [
+          "> Outcome Status: Delivered to Grower",
+          "> Advisory: Immediate crown hygiene instructions",
+          "> CRI Ticket Created: #CRI-AGR-2026-903",
+          "> SLA: Field Agronomist review within 24 hours"
+        ]
+      }
+    ];
+
+    let currentWorkflowStep = 1;
+
+    function setWorkflowStep(step) {
+      currentWorkflowStep = step;
+      document.querySelectorAll('.workflow-tab-btn').forEach((btn, idx) => {
+        if (idx + 1 === step) {
+          btn.className = "workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-forest text-white border-forest shadow-premium scale-105";
+          btn.querySelector('div').className = "w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-emerald text-white";
+        } else {
+          btn.className = "workflow-tab-btn p-4 rounded-2xl border text-center transition-all bg-white text-charcoal border-offwhite-border hover:border-emerald/40";
+          btn.querySelector('div').className = "w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-sm mb-2 mx-auto bg-offwhite text-charcoal-muted";
+        }
+      });
+
+      const s = workflowStages[step - 1];
+      document.getElementById('workflow-badge-stage').textContent = `Stage 0${s.step} of 06`;
+      document.getElementById('workflow-badge-tag').textContent = s.tag;
+      document.getElementById('workflow-title').textContent = s.title;
+      document.getElementById('workflow-summary').textContent = s.summary;
+      document.getElementById('workflow-detail').textContent = s.detail;
+
+      const tel = document.getElementById('workflow-telemetry');
+      tel.innerHTML = s.telemetry.map(t => `<div class="${t.includes('Alert') || t.includes('Task') ? 'text-gold' : t.includes('Pass') || t.includes('Outcome') ? 'text-emerald-light' : 'text-white'}">${t}</div>`).join('');
+    }
+
+    function navigateWorkflow(direction) {
+      let next = currentWorkflowStep + direction;
+      if (next < 1) next = 1;
+      if (next > 6) next = 6;
+      setWorkflowStep(next);
+    }
+
+    // Modal Case Simulator Selector
+    const caseData = {
+      mite: {
+        title: "Coconut Aceria Mite Damage",
+        scientific: "Aceria guerreronis Keifer",
+        symptoms: "Triangular pale white patches near the perianth evolving into brown suberized wart-like patches, resulting in fruit stunted development and premature nut fall.",
+        research: "CRI Advisory Leaflet No. 34 (Pest Management Series)",
+        confBadge: "Confidence: 94.8% Match",
+        recommendation: "Apply recommended botanical neem oil-garlic emulsion (2%) or biopesticide spray directed at young nut bunches (1-4 months old). Repeat at 45-day intervals during dry weather.",
+        isReferral: false,
+        findings: {
+          coord: "Dispatched vision feature extraction vectors and coordinated matching against the CRI Arthropod Compendium.",
+          research: "Retrieved CRI Leaflet #34; verified Aceria guerreronis micro-feeding patterns on juvenile buttons and young perianths.",
+          feasibility: "Assessed plantation scale. Safe for organic certified estates; recommended botanical bio-spray using standard knapsack equipment.",
+          review: "Visual confidence 94.8% exceeds threshold; zero hallucination in advisory text; source citations verified."
+        }
+      },
+      budrot: {
+        title: "Phytophthora Bud Rot",
+        scientific: "Phytophthora palmivora",
+        symptoms: "Yellowing and wilting of the spear leaf followed by necrosis and central whorl rotting, accompanied by foul odor upon tissue incision.",
+        research: "CRI Bulletin 112: Fatal Crown Pathology Guidelines",
+        confBadge: "Confidence: 91.2% Risk",
+        recommendation: "Immediate mechanical crown hygiene: excise necrotic spear tissue. Apply 10% Bordeaux paste or systemic Metalaxyl to the heart rot zone. Due to lethal risk, an on-site inspection is required.",
+        isReferral: true,
+        findings: {
+          coord: "Classified as High-Severity Pathogenic Alert. Triggered emergency priority lane.",
+          research: "Identified Phytophthora palmivora symptoms with wet rot smell indicator from CRI Bulletin 112.",
+          feasibility: "Urgent intervention required prior to monsoon onset to arrest inter-tree zoospore dissemination.",
+          review: "HIGH STAKES DETECTED: Automated resolution withheld. Automatically triggered CRI Agronomist referral ticket #CRI-2026-884."
+        }
+      },
+      potassium: {
+        title: "Potassium (K) Leaf Scorch",
+        scientific: "Physiological Nutrient Disorder",
+        symptoms: "Orange-yellow translucent spotting and marginal necrosis starting from oldest fronds, causing frond premature drooping and reduced nut size.",
+        research: "CRI Soils & Plant Nutrition Circular Vol. 18",
+        confBadge: "Confidence: 96.4% Match",
+        recommendation: "Soil application of Muriate of Potash (MOP) at 1.5 - 2.0 kg/palm/year split across two rainy seasons with organic coir dust mulching around the 1.5m root basin.",
+        isReferral: false,
+        findings: {
+          coord: "Correlated soil questionnaire data with frond image color spectrum.",
+          research: "Matched typical leaf necrosis symptoms from CRI Soils Circular Vol. 18.",
+          feasibility: "MOP fertilizer readily available through local agrarian services centers.",
+          review: "Dosage adheres strictly to soil fertility recommendations for intermediate rainfall zones."
+        }
+      }
+    };
+
+    function selectCase(id) {
+      document.querySelectorAll('.case-btn').forEach(btn => {
+        btn.classList.remove('bg-emerald/20', 'border-emerald', 'shadow-soft-glow');
+        btn.classList.add('bg-forest-dark', 'border-mint/10');
+      });
+      document.getElementById('case-btn-' + id).classList.remove('bg-forest-dark', 'border-mint/10');
+      document.getElementById('case-btn-' + id).classList.add('bg-emerald/20', 'border-emerald', 'shadow-soft-glow');
+
+      const c = caseData[id];
+      document.getElementById('case-title').textContent = c.title;
+      document.getElementById('case-scientific').textContent = c.scientific;
+      document.getElementById('case-symptoms').textContent = c.symptoms;
+      document.getElementById('case-research').textContent = c.research;
+      document.getElementById('case-conf-badge').textContent = c.confBadge;
+      document.getElementById('case-recommendation').textContent = c.recommendation;
+
+      document.getElementById('finding-coord').textContent = c.findings.coord;
+      document.getElementById('finding-research').textContent = c.findings.research;
+      document.getElementById('finding-feasibility').textContent = c.findings.feasibility;
+      document.getElementById('finding-review').textContent = c.findings.review;
+
+      const refBanner = document.getElementById('case-referral-banner');
+      if (c.isReferral) {
+        refBanner.classList.remove('hidden');
+      } else {
+        refBanner.classList.add('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
