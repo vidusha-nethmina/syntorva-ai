@@ -8,6 +8,7 @@ export default function Footer({ onOpenContactModal, onOpenCocoModal }) {
     { label: 'Core Features', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Our Vision', href: '#vision' },
+    { label: 'Our Team', href: '#team' },
     { label: 'Contact', href: '#contact' },
   ];
 
