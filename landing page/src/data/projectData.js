@@ -11,6 +11,44 @@ export const BRAND = {
   copyright: "© 2026/27 ZYNELO Platform. All rights reserved."
 };
 
+export const TEAM_MEMBERS = [
+  {
+    name: "M.Arshad Mazeer",
+    role: "Scrum Master",
+    initials: "SM",
+    description: "Guides the team through agile processes, ensuring timely delivery and effective collaboration.",
+    accent: "platinum"
+  },
+  {
+    name: "Sandupama Liyanagama",
+    role: "Project Owner",
+    initials: "PL",
+    description: "Guides the product vision, research priorities, and delivery of the Zynaide platform.",
+    accent: "emerald"
+  },
+  {
+    name: "M.Vidusha Nethmina",
+    role: "AI Systems Engineer",
+    initials: "AI",
+    description: "Designs the specialised agent workflow, orchestration logic, and platform integrations.",
+    accent: "mint"
+  },
+  {
+    name: "M.Manasi Saundarya",
+    role: "Marketing Lead",
+    initials: "AD",
+    description: "Shapes the coconut advisory experience using trusted agricultural research and domain context.",
+    accent: "gold"
+  },
+  {
+    name: "R.Sithija Sachintha George",
+    role: "UI/UX Engineer",
+    initials: "UX",
+    description: "Creates a clear, accessible experience and validates that recommendations remain practical for users.",
+    accent: "forest"
+  }
+];
+
 export const AGENTS = [
   {
     id: "coordinator",
