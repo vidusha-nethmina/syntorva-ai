@@ -5,6 +5,7 @@ import About from './components/About';
 import Features from './components/Features';
 import HowItWorks from './components/HowItWorks';
 import OurVision from './components/OurVision';
+import Team from './components/Team';
 import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import CocoDemoModal from './components/CocoDemoModal';
@@ -43,14 +44,17 @@ export default function App() {
         {/* Section 6: Our Vision 4-Phase Roadmap */}
         <OurVision />
 
-        {/* Section 7: Call to Action */}
+        {/* Section 7: Team */}
+        <Team />
+
+        {/* Section 8: Call to Action */}
         <CallToAction
           onOpenContactModal={() => setIsContactModalOpen(true)}
           onOpenCocoModal={() => setIsCocoModalOpen(true)}
         />
       </main>
 
-      {/* Section 8: Footer */}
+      {/* Section 9: Footer */}
       <Footer
         onOpenContactModal={() => setIsContactModalOpen(true)}
         onOpenCocoModal={() => setIsCocoModalOpen(true)}
