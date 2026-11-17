@@ -22,6 +22,7 @@ export default function Navbar({ onOpenCocoModal, onOpenContactModal }) {
     { label: 'Features', href: '#features' },
     { label: 'How It Works', href: '#how-it-works' },
     { label: 'Our Vision', href: '#vision' },
+    { label: 'Team', href: '#team' },
     { label: 'Contact', href: '#contact' },
   ];
 
