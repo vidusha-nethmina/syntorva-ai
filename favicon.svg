@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-104 -118 208 236" role="img" aria-label="ZynAIde emblem">
+<title>ZynAIde emblem</title>
+<defs><linearGradient id="zg" gradientUnits="userSpaceOnUse" x1="-36.75" y1="-98.7" x2="36.75" y2="98.7"><stop offset="0" stop-color="#14F1F6"/><stop offset="0.38" stop-color="#22B7EC"/><stop offset="0.62" stop-color="#3D7FE4"/><stop offset="0.82" stop-color="#5A4FE0"/><stop offset="1" stop-color="#7B2BD9"/></linearGradient></defs>
+<rect x="-104" y="-118" width="208" height="236" rx="36" fill="#17141F"/><g transform="scale(0.86)" >
+<g stroke="url(#zg)" stroke-width="8.6" stroke-linecap="butt" fill="none"><line x1="0" y1="-100" x2="-84" y2="-50"/><line x1="0" y1="-100" x2="84" y2="-50"/><line x1="-84" y1="-50" x2="-84" y2="50"/><line x1="84" y1="-50" x2="84" y2="50"/><line x1="-84" y1="50" x2="0" y2="100"/><line x1="84" y1="50" x2="0" y2="100"/><line x1="0" y1="-100" x2="-84" y2="50"/><line x1="0" y1="-100" x2="84" y2="50"/><line x1="-84" y1="-50" x2="0" y2="100"/><line x1="84" y1="-50" x2="0" y2="100"/><line x1="-84" y1="-50" x2="0" y2="0"/><line x1="0" y1="0" x2="84" y2="50"/></g>
+<g fill="url(#zg)"><polygon points="-18.97,-44.3 84,-44.3 84,-53.7 -13.03,-53.7"/><polygon points="-36.56,49 -25.44,49 36.56,-49 25.44,-49"/><polygon points="-84,53.7 13.03,53.7 18.97,44.3 -84,44.3"/><circle cx="0" cy="0" r="13"/><circle cx="0" cy="-100" r="12.5"/><circle cx="-84" cy="-50" r="12.5"/><circle cx="84" cy="-50" r="12.5"/><circle cx="-84" cy="50" r="12.5"/><circle cx="84" cy="50" r="12.5"/><circle cx="0" cy="100" r="12.5"/></g>
+</g>
+</svg>
